@@ -12,6 +12,7 @@
 </head>
 <body class="bg-[#0B0B0B] text-white min-h-screen flex flex-col justify-between">
 
+    <!-- Onboarding Screen -->
     <div id="onboarding-screen" class="max-w-md mx-auto p-6 w-full mt-10">
         <div class="flex items-center gap-3 mb-6">
             <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -48,7 +49,9 @@
         </div>
     </div>
 
+    <!-- Main Chat Screen (Hidden Initially) -->
     <div id="chat-screen" class="hidden flex-col h-screen max-w-4xl mx-auto w-full p-4 justify-between">
+        <!-- Top Nav -->
         <div class="flex justify-between items-center border-b border-gray-800 pb-3">
             <div class="flex items-center gap-2">
                 <svg width="28" height="28" viewBox="0 0 36 36" fill="none">
@@ -63,7 +66,9 @@
             </div>
         </div>
 
+        <!-- Chat Body & Ad Panel Layout -->
         <div class="flex flex-1 overflow-hidden gap-4 my-4">
+            <!-- Chat Area -->
             <div class="flex-1 flex flex-col justify-between bg-[#121212] rounded-xl p-4 border border-gray-800">
                 <div id="chat-messages" class="flex-1 overflow-y-auto space-y-4 pr-2">
                     <div class="text-center my-auto">
@@ -71,12 +76,14 @@
                         <p class="text-sm text-gray-400 mt-1">What's on your mind right now? I'm here for this moment.</p>
                     </div>
                 </div>
+                <!-- Input Box -->
                 <div class="mt-3 flex gap-2">
                     <input type="text" id="user-input" placeholder="Say what's happening right now..." class="flex-1 bg-[#1A1A1A] border border-gray-800 rounded-lg p-3 text-sm focus:outline-none focus:border-[#F3C623]">
                     <button onclick="sendMessage()" class="bg-[#F3C623] text-black px-5 rounded-lg font-semibold hover:bg-[#e0b41e]">Send</button>
                 </div>
             </div>
 
+            <!-- Ad Hub Side Panel -->
             <div class="w-64 hidden md:flex flex-col gap-3 bg-[#121212] rounded-xl p-4 border border-gray-800">
                 <span class="text-[10px] text-gray-500 tracking-wider uppercase">Sponsored Partner</span>
                 <div id="side-ad-container" class="bg-[#1A1A1A] p-3 rounded-lg border border-gray-800 text-center">
@@ -90,4 +97,3 @@
     <script src="app.js"></script>
 </body>
 </html>
-
