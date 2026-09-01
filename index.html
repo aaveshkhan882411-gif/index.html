@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pally — A friend for this moment</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0B0B0B; color: #FFFFFF; }
+    </style>
+</head>
+<body class="bg-[#0B0B0B] text-white min-h-screen flex flex-col justify-between">
+
+    <div id="onboarding-screen" class="max-w-md mx-auto p-6 w-full mt-10">
+        <div class="flex items-center gap-3 mb-6">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="13" cy="18" r="9" fill="#F3C623" fill-opacity="0.9"/>
+                <circle cx="23" cy="18" r="9" fill="#FFD700" fill-opacity="0.6"/>
+            </svg>
+            <h1 class="text-2xl font-bold tracking-tight">Pally</h1>
+        </div>
+        <h2 class="text-xl font-semibold mb-2">Let's set the scene.</h2>
+        <p class="text-sm text-gray-400 mb-6">One quick setup so your companion can meet you where you are — then it's just you and the present.</p>
+        
+        <div class="space-y-4">
+            <div>
+                <label class="block text-xs text-gray-400 mb-1">COUNTRY & REGION</label>
+                <input type="text" id="country-input" placeholder="Auto-detecting..." class="w-full bg-[#1A1A1A] border border-gray-800 rounded-lg p-3 text-sm focus:outline-none focus:border-[#F3C623]">
+            </div>
+            <div>
+                <label class="block text-xs text-gray-400 mb-1">LANGUAGE</label>
+                <select id="language-select" class="w-full bg-[#1A1A1A] border border-gray-800 rounded-lg p-3 text-sm focus:outline-none focus:border-[#F3C623]">
+                    <option value="Auto">Auto (Supports all languages)</option>
+                    <option value="English">English</option>
+                    <option value="Hindi">Hindi</option>
+                    <option value="Hinglish">Hinglish</option>
+                    <option value="Spanish">Spanish</option>
+                    <option value="Chinese">Chinese</option>
+                    <option value="Russian">Russian</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-xs text-gray-400 mb-1">AGE (helps set the tone)</label>
+                <input type="number" id="age-input" placeholder="e.g. 24" class="w-full bg-[#1A1A1A] border border-gray-800 rounded-lg p-3 text-sm focus:outline-none focus:border-[#F3C623]">
+            </div>
+            <button onclick="startPally()" class="w-full bg-[#F3C623] text-black font-semibold p-3 rounded-lg hover:bg-[#e0b41e] transition-colors mt-4">Begin →</button>
+        </div>
+    </div>
+
+    <div id="chat-screen" class="hidden flex-col h-screen max-w-4xl mx-auto w-full p-4 justify-between">
+        <div class="flex justify-between items-center border-b border-gray-800 pb-3">
+            <div class="flex items-center gap-2">
+                <svg width="28" height="28" viewBox="0 0 36 36" fill="none">
+                    <circle cx="13" cy="18" r="9" fill="#F3C623"/>
+                    <circle cx="23" cy="18" r="9" fill="#FFD700" fill-opacity="0.6"/>
+                </svg>
+                <span class="font-bold text-lg">Pally</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <button class="text-xs bg-gray-800 px-3 py-1.5 rounded-full hover:bg-gray-700">Voice</button>
+                <button onclick="toggleMenu()" class="text-xl px-2">⋮</button>
+            </div>
+        </div>
+
+        <div class="flex flex-1 overflow-hidden gap-4 my-4">
+            <div class="flex-1 flex flex-col justify-between bg-[#121212] rounded-xl p-4 border border-gray-800">
+                <div id="chat-messages" class="flex-1 overflow-y-auto space-y-4 pr-2">
+                    <div class="text-center my-auto">
+                        <h3 class="text-lg font-semibold text-gray-200">Hello friends!</h3>
+                        <p class="text-sm text-gray-400 mt-1">What's on your mind right now? I'm here for this moment.</p>
+                    </div>
+                </div>
+                <div class="mt-3 flex gap-2">
+                    <input type="text" id="user-input" placeholder="Say what's happening right now..." class="flex-1 bg-[#1A1A1A] border border-gray-800 rounded-lg p-3 text-sm focus:outline-none focus:border-[#F3C623]">
+                    <button onclick="sendMessage()" class="bg-[#F3C623] text-black px-5 rounded-lg font-semibold hover:bg-[#e0b41e]">Send</button>
+                </div>
+            </div>
+
+            <div class="w-64 hidden md:flex flex-col gap-3 bg-[#121212] rounded-xl p-4 border border-gray-800">
+                <span class="text-[10px] text-gray-500 tracking-wider uppercase">Sponsored Partner</span>
+                <div id="side-ad-container" class="bg-[#1A1A1A] p-3 rounded-lg border border-gray-800 text-center">
+                    <p class="text-xs text-gray-400">Ad Hub Slot Active</p>
+                    <p class="text-[11px] text-[#F3C623] mt-1">Transform your brand here.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
+
